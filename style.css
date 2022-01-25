@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(rgb(29 28 28), rgb(0 0 0));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+
+
+.pokebola {
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+
+.moverDerecha{
+    animation-name: girar,moverDerecha;
+    animation-iteration-count: infinite,1;
+    animation-duration: .4s,1s;
+    animation-timing-function: linear,ease;
+    animation-fill-mode: none,both;
+    animation-delay: 0;
+}
+
+
+.moverIzquierda{
+    animation-name: girar,moverIzquierda;
+    animation-iteration-count: 4,1;
+    animation-duration: .4s,1s;
+    animation-timing-function: linear,ease;
+    animation-fill-mode: none,both;
+    animation-delay: 0;
+}
+
+
+
+
+
+@keyframes moverIzquierda {
+    from {
+        right: 0%;
+       
+    }
+    to {
+        right: 100%;
+    }
+}
+@keyframes moverDerecha {
+    from {
+        right: -100%;
+        left: 100%;
+    }
+
+    to {
+        right: 0;
+        left: 0;
+    }
+}
+
+
+@keyframes girar {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(-360deg);
+    }
+}
+
+.pokebola::after {
+    content: '';
+    width: 100px;
+    height: 50%;
+    left: 0;
+    width: 100%;
+    background: radial-gradient(rgb(109, 6, 6), rgb(184, 12, 12));
+    position: absolute;
+    top: 0;
+}
+
+.pokebola::before {
+    bottom: 0;
+    content: '';
+    width: 100px;
+    height: 50%;
+    left: 0;
+    width: 100%;
+    background: rgb(28 28 28);
+    position: absolute;
+  
+}
+
+
+
+.pokebola>.top {
+    width: 100%;
+    height: 50%;
+    background: radial-gradient(red, #d80000);
+    position: relative;
+    border-bottom: solid 8px black;
+    transform: translateY(0px);
+    z-index: 4;
+    transition: transform .4s ease;
+}
+.abrirArriba{
+    transform: translateY(-100px) !important;
+}
+
+.pokebola>.top::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    border-radius: 50%;
+    bottom: -60px;
+    left: calc(50% - 50px);
+    border: solid 8px black;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 0px 10px white, inset 0px 0px 0px 14px black;
+}
+
+.imagen{
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    z-index: 2;
+    left: calc(50% - 70px);
+    top:calc(50% - 70px);    
+}
+.imagen img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+}
+
+
+.pokebola>.bottom {
+    width: 100%;
+    height: 50%;
+    background: radial-gradient(white, #d4d4d4);
+    position: relative;
+    overflow: hidden;
+    transform: translateY(0px);
+    transition: transform .4s ease;
+    z-index: 3;
+
+}
+
+
+.abrirAbajo {
+    transform: translateY(100px) !important;
+}
+
+.pokebola>.bottom::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background-color: rgb(28 28 28);
+    position: absolute;
+    border-radius: 50%;
+    top: -50px;
+    left: calc(50% - 50px);
+    box-sizing: border-box;
+    overflow: hidden;
+    border: solid 10px black;
+
+}
+
+button#izquierda {
+    padding: 15px;
+    border-radius: 8px;
+    outline: navajowhite;
+    border: none;
+    font-size: 17px;
+    background: #ff2828;
+    /* font-weight: bold; */
+    color: #e0e0e0;
+    margin: 60px;
+    cursor: pointer;
+}
+.mostrarBanner{
+    width: auto !important;
+}
+
+
+.banner{
+    position: absolute;
+    left: 0;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.637);
+    overflow: hidden;
+    width: 0;
+    transition: all 1s ease;
+}
+
+div#imagenBanner img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.datos{
+    font-family: calibri;
+    color:rgb(199, 199, 199);
+}
+#nombre {
+    text-align: center;
+    font-size: 37px;
+    padding: 28px 0;
+    color: white;
+}
+.item{
+    display: flex;
+    gap:20px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+.etiqueta{
+    background-color: rgb(43, 42, 42);
+    color:rgb(219, 219, 219);
+    border-radius: 4px;
+    padding: 4px 8px;
+}
